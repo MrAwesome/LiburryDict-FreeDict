@@ -7,6 +7,4 @@ cd "$(dirname $0)"
 
 mkdir -p "$EXTRACTED_DICTD_DIR"
 
-for db in ${DB_DIR}/*; do
-    tar xf "$db"  --directory "$EXTRACTED_DICTD_DIR"
-done
+echo ${DB_DIR}/* | xargs -n1 | xargs -P "$PARELLELISM" -I{} tar xf {} --directory "$EXTRACTED_DICTD_DIR"

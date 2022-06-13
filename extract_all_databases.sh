@@ -7,6 +7,6 @@ cd "$(dirname $0)"
 
 mkdir -p "$EXTRACTED_TEI_DIR"
 
-for db in "${DB_DIR}/*"; do
+for db in ${DB_DIR}/*; do
     tar xf "$db"  --directory "$EXTRACTED_TEI_DIR" --wildcards '*/*.tei'
 done
